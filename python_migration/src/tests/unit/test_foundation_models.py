@@ -8,6 +8,11 @@ from decimal import Decimal
 
 import pytest
 
+from models.audit import AuditRecord
+from models.batch_control import BatchControlConstants, BatchControlRecord
+from models.checkpoint import CheckpointControl
+from models.db_procedures import DB2ErrorHandling, SqlStatusCodes
+from models.db_tables import ErrlogRecord, PoshistRecord
 from models.enums import (
     AuditAction,
     AuditStatus,
@@ -32,21 +37,14 @@ from models.enums import (
     TransactionType,
     ValidationReturnCode,
 )
-from models.audit import AuditRecord
-from models.batch_control import BatchControlConstants, BatchControlRecord
-from models.checkpoint import CheckpointControl
-from models.db_procedures import DB2ErrorHandling, SqlStatusCodes
-from models.db_tables import ErrlogRecord, PoshistRecord
 from models.error_handling import ErrorMessage, ReturnHandling, StandardErrorCode, VsamStatus
 from models.history import HistoryRecord
 from models.online import DB2RequestArea, InquiryCommunicationArea, OnlineErrorHandling
 from models.portfolio import PortfolioRecord
 from models.position import PositionRecord
 from models.process_sequence import ProcessSequenceRecord, StandardSequences
-from models.return_code import ReturnCodeArea
 from models.transaction import TransactionRecord
 from models.validation import VAL_ID_PREFIX, VAL_MAX_AMOUNT, VAL_MIN_AMOUNT, VALID_INVESTMENT_TYPES
-
 
 # ===== ENUM TESTS =====
 
