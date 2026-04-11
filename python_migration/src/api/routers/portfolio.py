@@ -129,7 +129,7 @@ def create_portfolio(body: PortfolioCreate, db: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail=f"Invalid portfolio ID: {val_rc.name}")
 
     data = body.model_dump()
-    record, rc = _adder_svc.add_portfolio(db, data)
+    record, rc = _master_svc.add_portfolio(db, data)
     if rc == ReturnCode.WARNING:
         raise HTTPException(status_code=409, detail=f"Portfolio {body.portfolio_id} already exists")
     if rc != ReturnCode.SUCCESS or record is None:

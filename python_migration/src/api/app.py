@@ -12,9 +12,10 @@ CICS → FastAPI mapping:
   CICS LINK          → Service function calls
 """
 
-from api.db.base import init_db
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+from db.base import init_db
 
 from .routers import batch, health, portfolio, reports, transactions
 
